@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import * as api from '../utils/api.js'
+import { useEmployee } from '../store'
 
 const formValues = ref({
   firstName: '',
@@ -10,6 +11,8 @@ const formValues = ref({
 })
 
 const errorMessage = ref('')
+
+const { employeeList } = useEmployee()
 
 const handleSubmit = async () => {
   const { firstName, lastName, role, startDate } = formValues.value
@@ -23,6 +26,7 @@ const handleSubmit = async () => {
 
   try {
     await api.createNewEmployee(newEmployee)
+    employeeList.value = await api.getEmployeeList()
   } catch (error) {
     errorMessage.value = 'Aconteceu um erro no cadastro. Por favor, tente novamente.'
 
