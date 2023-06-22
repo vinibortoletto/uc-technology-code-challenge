@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import * as api from '../utils/api.js'
 
 const formValues = ref({
   firstName: '',
@@ -7,12 +8,31 @@ const formValues = ref({
   role: '',
   startDate: ''
 })
+
+const errorMessage = ref('')
+
+const handleSubmit = async () => {
+  const { firstName, lastName, role, startDate } = formValues.value
+
+  const newEmployee = {
+    nome: firstName,
+    sobrenome: lastName,
+    cargo: role,
+    dataInicio: new Date(startDate).toISOString()
+  }
+
+  try {
+    await api.createNewEmployee(newEmployee)
+  } catch (error) {
+    errorMessage.value = 'Aconteceu um erro no cadastro. Por favor, tente novamente.'
+  }
+}
 </script>
 
 <template>
   <h1 class="mb-4 text-3xl font-bold text-center text-sky-700">Cadastrar funcionário</h1>
 
-  <form class="flex flex-col gap-4">
+  <form class="flex flex-col gap-4" @submit.prevent="handleSubmit">
     <div class="relative">
       <label
         for="firstName"
@@ -74,6 +94,7 @@ const formValues = ref({
     </div>
 
     <button type="submit" class="p-2 font-bold rounded bg-sky-500 text-slate-100">Cadastrar</button>
+    <p v-if="errorMessage" class="text-sm text-red-800">{{ errorMessage }}</p>
   </form>
 </template>
 
