@@ -25,6 +25,10 @@ const handleSubmit = async () => {
     await api.createNewEmployee(newEmployee)
   } catch (error) {
     errorMessage.value = 'Aconteceu um erro no cadastro. Por favor, tente novamente.'
+
+    setTimeout(() => {
+      errorMessage.value = ''
+    }, 3000)
   }
 }
 </script>
