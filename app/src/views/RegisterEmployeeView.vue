@@ -6,6 +6,10 @@ import * as api from '../utils/api.js'
 
 const { employeeList } = useEmployee()
 
+const capitalizeText = (text) => {
+  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
+}
+
 onMounted(async () => {
   employeeList.value = await api.getEmployeeList()
 })
@@ -16,6 +20,6 @@ onMounted(async () => {
 
   <div v-for="employee in employeeList" :key="employee.id">
     <p>{{ employee.nome }} {{ employee.sobrenome }}</p>
-    <p>{{ employee.cargo }}</p>
+    <p>{{ capitalizeText(employee.cargo) }}</p>
   </div>
 </template>
