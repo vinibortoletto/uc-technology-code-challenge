@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import * as api from '../utils/api.js'
 import { useEmployee } from '../store'
+import TextField from './TextField.vue'
 
 const formValues = ref({
   firstName: '',
@@ -35,71 +36,48 @@ const handleSubmit = async () => {
     }, 3000)
   }
 }
+
+const handleInputChange = (event) => {
+  const { id, value } = event.target
+  formValues.value[id] = value
+}
 </script>
 
 <template>
   <h1 class="mb-4 text-3xl font-bold text-center text-sky-700">Cadastrar funcionário</h1>
 
   <form class="flex flex-col gap-4" @submit.prevent="handleSubmit">
-    <div class="relative">
-      <label
-        for="firstName"
-        class="absolute px-2 text-sm rounded -top-2 bg-slate-100 left-2 text-slate-500"
-        >Nome</label
-      >
+    <TextField
+      v-on:handleInputChange="handleInputChange"
+      id="firstName"
+      label="Nome"
+      type="text"
+      :value="formValues.firstName"
+    />
 
-      <input
-        class="w-full p-2 border rounded bg-slate-100 border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
-        type="text"
-        id="firstName"
-        v-model="formValues.firstName"
-      />
-    </div>
+    <TextField
+      v-on:handleInputChange="handleInputChange"
+      id="lastName"
+      label="Sobrenome"
+      type="text"
+      :value="formValues.lastName"
+    />
 
-    <div class="relative">
-      <label
-        for="lastName"
-        class="absolute px-2 text-sm rounded -top-2 bg-slate-100 left-2 text-slate-500"
-        >Sobrenome</label
-      >
+    <TextField
+      v-on:handleInputChange="handleInputChange"
+      id="role"
+      label="Cargo"
+      type="text"
+      :value="formValues.role"
+    />
 
-      <input
-        class="w-full p-2 border rounded bg-slate-100 border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
-        type="text"
-        id="lastName"
-        v-model="formValues.lastName"
-      />
-    </div>
-
-    <div class="relative">
-      <label
-        for="role"
-        class="absolute px-2 text-sm rounded -top-2 bg-slate-100 left-2 text-slate-500"
-        >Cargo</label
-      >
-
-      <input
-        class="w-full p-2 border rounded bg-slate-100 border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
-        type="text"
-        id="role"
-        v-model="formValues.role"
-      />
-    </div>
-
-    <div class="relative">
-      <label
-        for="date"
-        class="absolute px-2 text-sm rounded -top-2 bg-slate-100 left-2 text-slate-500"
-        >Data de início</label
-      >
-
-      <input
-        class="w-full p-2 border rounded bg-slate-100 border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
-        type="date"
-        id="startDate"
-        v-model="formValues.startDate"
-      />
-    </div>
+    <TextField
+      v-on:handleInputChange="handleInputChange"
+      id="startDate"
+      label="Data de início"
+      type="date"
+      :value="formValues.startDate"
+    />
 
     <button type="submit" class="p-2 font-bold rounded bg-sky-500 text-slate-100">Cadastrar</button>
     <p v-if="errorMessage" class="text-sm text-red-800">{{ errorMessage }}</p>
