@@ -1,5 +1,5 @@
 const validateForm = (value) => {
-  const lettersRegex = /^[a-zA-Z]+$/
+  const lettersAndSpacesRegex = /^[a-zA-Z\s]+$/
   const dateRegex = /^\d{4}-\d{2}-\d{2}$/
 
   if (!value) {
@@ -10,7 +10,7 @@ const validateForm = (value) => {
     return ''
   }
 
-  if (!value.match(lettersRegex)) {
+  if (!value.match(lettersAndSpacesRegex)) {
     return 'Campo deve conter apenas letras'
   }
 
