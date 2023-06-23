@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative w-full">
     <label
       :for="id"
       class="absolute px-2 text-sm rounded -top-2 bg-slate-100 left-2 text-slate-500"

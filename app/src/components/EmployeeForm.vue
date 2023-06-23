@@ -73,52 +73,66 @@ const handleInputChange = (event) => {
 <template>
   <h1 class="mb-4 text-3xl font-bold text-center text-sky-700">Cadastrar funcionário</h1>
 
-  <form class="flex flex-col gap-4" @submit.prevent="handleSubmit">
-    <TextField
-      v-on:handleInputChange="handleInputChange"
-      id="firstName"
-      label="Nome"
-      type="text"
-      :value="formValues.firstName"
-      :errorMessage="errorMessages.firstName"
-    />
+  <form class="flex flex-col max-w-xl gap-4 mx-auto" @submit.prevent="handleSubmit">
+    <div class="flex flex-col gap-4 sm:flex-row">
+      <TextField
+        v-on:handleInputChange="handleInputChange"
+        id="firstName"
+        label="Nome"
+        type="text"
+        :value="formValues.firstName"
+        :errorMessage="errorMessages.firstName"
+      />
 
-    <TextField
-      v-on:handleInputChange="handleInputChange"
-      id="lastName"
-      label="Sobrenome"
-      type="text"
-      :value="formValues.lastName"
-      :errorMessage="errorMessages.lastName"
-    />
+      <TextField
+        v-on:handleInputChange="handleInputChange"
+        id="lastName"
+        label="Sobrenome"
+        type="text"
+        :value="formValues.lastName"
+        :errorMessage="errorMessages.lastName"
+      />
+    </div>
 
-    <TextField
-      v-on:handleInputChange="handleInputChange"
-      id="role"
-      label="Cargo"
-      type="text"
-      :value="formValues.role"
-      :errorMessage="errorMessages.role"
-    />
+    <div class="flex flex-col gap-4 sm:flex-row">
+      <TextField
+        v-on:handleInputChange="handleInputChange"
+        id="role"
+        label="Cargo"
+        type="text"
+        :value="formValues.role"
+        :errorMessage="errorMessages.role"
+      />
 
-    <TextField
-      v-on:handleInputChange="handleInputChange"
-      id="startDate"
-      label="Data de início"
-      type="date"
-      :value="formValues.startDate"
-      :errorMessage="errorMessages.startDate"
-    />
+      <TextField
+        v-on:handleInputChange="handleInputChange"
+        id="startDate"
+        label="Data de início"
+        type="date"
+        :value="formValues.startDate"
+        :errorMessage="errorMessages.startDate"
+      />
+    </div>
 
-    <button v-if="isLoading" type="submit" class="p-2 font-bold rounded bg-sky-500 text-slate-100">
-      <LoadingAnimation />
-    </button>
+    <p v-if="errorMessage" class="text-sm text-right text-red-800">{{ errorMessage }}</p>
 
-    <button v-else type="submit" class="p-2 font-bold rounded bg-sky-500 text-slate-100">
-      Cadastrar
-    </button>
+    <div class="text-center">
+      <button
+        v-if="isLoading"
+        type="submit"
+        class="w-full p-2 font-bold rounded sm:w-40 bg-sky-500 text-slate-100"
+      >
+        <LoadingAnimation />
+      </button>
 
-    <p v-if="errorMessage" class="text-sm text-red-800">{{ errorMessage }}</p>
+      <button
+        v-else
+        type="submit"
+        class="w-full p-2 font-bold rounded sm:w-40 bg-sky-500 text-slate-100"
+      >
+        Cadastrar
+      </button>
+    </div>
   </form>
 </template>
 
