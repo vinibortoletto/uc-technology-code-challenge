@@ -55,15 +55,8 @@ const deleteEmployee = async (_, id) => {
       </div>
 
       <div>
-        <p>
-          <span>Funcionário: </span>
-          <span class="font-bold">{{ employee.nome }} {{ employee.sobrenome }}</span>
-        </p>
-
-        <p>
-          <span>Cargo: </span>
-          <span class="font-bold">{{ capitalizeText(employee.cargo) }}</span>
-        </p>
+        <p class="text-lg font-bold">{{ employee.nome }} {{ employee.sobrenome }}</p>
+        <p>{{ capitalizeText(employee.cargo) }}</p>
       </div>
     </div>
   </RouterLink>

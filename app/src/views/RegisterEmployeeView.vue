@@ -22,7 +22,7 @@ onMounted(async () => {
   <section>
     <h2 class="mb-4 text-2xl font-bold text-center text-sky-700">Funcionários</h2>
 
-    <div v-if="employeeList.length > 0" class="grid gap-4 md:grid-cols-2">
+    <div v-if="employeeList.length > 0" class="grid gap-4 sm:grid-cols-2">
       <EmployeeCard v-for="employee in employeeList" :key="employee.id" :employee="employee" />
     </div>
 
