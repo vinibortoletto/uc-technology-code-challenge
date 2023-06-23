@@ -32,3 +32,12 @@ export const createNewEmployee = async (newEmployee) => {
     throw new Error(error)
   }
 }
+
+export const deleteEmployee = async (id) => {
+  try {
+    await axios.delete(`${API_URL}/${id}`)
+  } catch (error) {
+    console.error(error)
+    throw new Error(error)
+  }
+}
