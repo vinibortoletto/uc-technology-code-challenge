@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import EditEmployeeView from '../views/EditEmployeeView.vue'
 import RegisterEmployeeView from '../views/RegisterEmployeeView.vue'
 
 const router = createRouter({
@@ -8,6 +9,11 @@ const router = createRouter({
       path: '/',
       name: 'Register Employee',
       component: RegisterEmployeeView
+    },
+    {
+      path: '/edit-employee/:id',
+      name: 'Edit Employee',
+      component: EditEmployeeView
     }
   ]
 })
