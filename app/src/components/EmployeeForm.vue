@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import * as api from '../utils/api.js'
 import { useEmployee } from '../store'
 import TextField from './TextField.vue'
+import validateForm from '../utils/validateForm.js'
 
 const formValues = ref({
   firstName: '',
@@ -11,12 +12,27 @@ const formValues = ref({
   startDate: ''
 })
 
-const errorMessage = ref('')
+const errorMessages = ref({
+  firstName: '',
+  lastName: '',
+  role: '',
+  startDate: ''
+})
 
+const errorMessage = ref('')
 const { employeeList } = useEmployee()
 
 const handleSubmit = async () => {
   const { firstName, lastName, role, startDate } = formValues.value
+
+  if (validateForm(firstName) || validateForm(lastName) || validateForm(role)) {
+    errorMessages.value.firstName = validateForm(firstName)
+    errorMessages.value.lastName = validateForm(lastName)
+    errorMessages.value.role = validateForm(role)
+    errorMessages.value.startDate = validateForm(startDate)
+
+    return
+  }
 
   const newEmployee = {
     nome: firstName,
@@ -39,6 +55,7 @@ const handleSubmit = async () => {
 
 const handleInputChange = (event) => {
   const { id, value } = event.target
+  errorMessages.value[id] = validateForm(value)
   formValues.value[id] = value
 }
 </script>
@@ -53,6 +70,7 @@ const handleInputChange = (event) => {
       label="Nome"
       type="text"
       :value="formValues.firstName"
+      :errorMessage="errorMessages.firstName"
     />
 
     <TextField
@@ -61,6 +79,7 @@ const handleInputChange = (event) => {
       label="Sobrenome"
       type="text"
       :value="formValues.lastName"
+      :errorMessage="errorMessages.lastName"
     />
 
     <TextField
@@ -69,6 +88,7 @@ const handleInputChange = (event) => {
       label="Cargo"
       type="text"
       :value="formValues.role"
+      :errorMessage="errorMessages.role"
     />
 
     <TextField
@@ -77,6 +97,7 @@ const handleInputChange = (event) => {
       label="Data de início"
       type="date"
       :value="formValues.startDate"
+      :errorMessage="errorMessages.startDate"
     />
 
     <button type="submit" class="p-2 font-bold rounded bg-sky-500 text-slate-100">Cadastrar</button>
