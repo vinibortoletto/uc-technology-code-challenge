@@ -22,6 +22,7 @@ defineProps({
       } focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 `"
       :type="type"
       :id="id"
+      :value="value"
       @input="$emit('handleInputChange', $event)"
     />
 
