@@ -4,6 +4,7 @@ import * as api from '../utils/api.js'
 import DeleteEmployeePopUp from '../components/DeleteEmployeePopUp.vue'
 import { ref } from 'vue'
 import { useEmployee } from '../store'
+import { RouterLink } from 'vue-router'
 
 const isDeleting = ref(false)
 const { employeeList } = useEmployee()
@@ -38,32 +39,34 @@ const deleteEmployee = async (_, id) => {
 </script>
 
 <template>
-  <div
-    class="relative flex items-center gap-4 p-6 text-base transition bg-white shadow hover:shadow-md"
-  >
-    <button
-      @click="togglePopUp"
-      class="absolute p-1 text-xs text-white bg-red-700 rounded-full right-2 top-2"
+  <RouterLink :to="`/edit-employee/${employee.id}`">
+    <div
+      class="relative flex items-center gap-4 p-6 text-base transition bg-white shadow hover:shadow-md"
     >
-      <Icon icon="ep:close-bold" />
-    </button>
+      <button
+        @click="togglePopUp"
+        class="absolute p-1 text-xs text-white bg-red-700 rounded-full right-2 top-2"
+      >
+        <Icon icon="ep:close-bold" />
+      </button>
 
-    <div class="p-1 border-4 rounded-full border-sky-500 full">
-      <Icon icon="solar:user-bold" class="text-4xl text-sky-500" />
+      <div class="p-1 border-4 rounded-full border-sky-500 full">
+        <Icon icon="solar:user-bold" class="text-4xl text-sky-500" />
+      </div>
+
+      <div>
+        <p>
+          <span>Funcionário: </span>
+          <span class="font-bold">{{ employee.nome }} {{ employee.sobrenome }}</span>
+        </p>
+
+        <p>
+          <span>Cargo: </span>
+          <span class="font-bold">{{ capitalizeText(employee.cargo) }}</span>
+        </p>
+      </div>
     </div>
-
-    <div>
-      <p>
-        <span>Funcionário: </span>
-        <span class="font-bold">{{ employee.nome }} {{ employee.sobrenome }}</span>
-      </p>
-
-      <p>
-        <span>Cargo: </span>
-        <span class="font-bold">{{ capitalizeText(employee.cargo) }}</span>
-      </p>
-    </div>
-  </div>
+  </RouterLink>
 
   <DeleteEmployeePopUp
     v-if="isDeleting"
