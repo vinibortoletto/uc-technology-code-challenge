@@ -71,8 +71,6 @@ const handleInputChange = (event) => {
 </script>
 
 <template>
-  <h1 class="mb-4 text-3xl font-bold text-center text-sky-700">Cadastrar funcionário</h1>
-
   <form class="flex flex-col max-w-xl gap-4 mx-auto" @submit.prevent="handleSubmit">
     <div class="flex flex-col gap-4 sm:flex-row">
       <TextField
