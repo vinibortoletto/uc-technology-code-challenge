@@ -3,12 +3,9 @@ import { onMounted } from 'vue'
 import EmployeeForm from '../components/EmployeeForm.vue'
 import { useEmployee } from '../store.js'
 import * as api from '../utils/api.js'
+import EmployeeCard from '../components/EmployeeCard.vue'
 
 const { employeeList } = useEmployee()
-
-const capitalizeText = (text) => {
-  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
-}
 
 onMounted(async () => {
   employeeList.value = await api.getEmployeeList()
@@ -18,8 +15,7 @@ onMounted(async () => {
 <template>
   <EmployeeForm />
 
-  <div v-for="employee in employeeList" :key="employee.id">
-    <p>{{ employee.nome }} {{ employee.sobrenome }}</p>
-    <p>{{ capitalizeText(employee.cargo) }}</p>
+  <div class="mt-4">
+    <EmployeeCard v-for="employee in employeeList" :key="employee.id" :employee="employee" />
   </div>
 </template>
