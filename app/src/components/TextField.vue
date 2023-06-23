@@ -29,3 +29,14 @@ defineProps({
     <p v-if="errorMessage" class="mt-1 text-sm text-right text-red-700">{{ errorMessage }}</p>
   </div>
 </template>
+
+<style scoped>
+input[type='date']::-webkit-calendar-picker-indicator {
+  background-color: transparent;
+  background-image: url('../assets/calendar.png');
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+</style>
