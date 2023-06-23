@@ -15,9 +15,9 @@ const capitalizeText = (text) => {
 </script>
 
 <template>
-  <div class="flex items-center gap-4 p-6 text-xl transition bg-white shadow hover:shadow-md">
+  <div class="flex items-center gap-4 p-6 text-base transition bg-white shadow hover:shadow-md">
     <div class="p-1 border-4 rounded-full border-sky-500 full">
-      <Icon icon="solar:user-bold" class="text-5xl text-sky-500" />
+      <Icon icon="solar:user-bold" class="text-4xl text-sky-500" />
     </div>
 
     <div>
