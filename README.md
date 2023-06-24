@@ -54,7 +54,7 @@ git clone https://github.com/vinibortoletto/uc-technology-code-challenge.git
 Entre no diretório do projeto:
 
 ```bash
-cd uc-technology-code-challenge/app
+cd uc-technology-code-challenge
 ```
 
 Instale as dependências:
