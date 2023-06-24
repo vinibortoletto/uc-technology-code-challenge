@@ -48,7 +48,7 @@ const deleteEmployee = async (_, id) => {
     <!-- Card -->
     <RouterLink :to="`/edit-employee/${employee.id}`">
       <div
-        class="flex items-center gap-4 p-6 text-base transition bg-white rounded-lg shadow hover:shadow-md"
+        class="flex items-center h-32 gap-4 p-6 text-base transition bg-white rounded-lg shadow hover:shadow-md"
       >
         <!-- User Icon -->
         <div class="p-1 border-4 rounded-full border-sky-500 full">
