@@ -5,7 +5,7 @@ import { useEmployee } from '../store'
 import TextField from './TextField.vue'
 import validateForm from '../utils/validateForm.js'
 import LoadingAnimation from './LoadingAnimation.vue'
-import { watchEffect, defineProps } from 'vue'
+import { watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import capitalizeText from '../utils/capitalizeText.js'
 
