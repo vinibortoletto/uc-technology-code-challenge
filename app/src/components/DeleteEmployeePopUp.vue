@@ -16,7 +16,8 @@ defineProps({
       <!-- Title -->
       <h3 class="text-lg font-bold">
         Tem certeza de que quer remover
-        <span class="text-sky-500">{{ employee.nome }} {{ employee.sobrenome }}</span> ?
+        <span class="text-sky-500">{{ employee.nome }} {{ employee.sobrenome }}</span
+        >?
       </h3>
 
       <!-- Subtitle -->
