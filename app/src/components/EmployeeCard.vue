@@ -45,7 +45,9 @@ const deleteEmployee = async (_, id) => {
     </button>
 
     <RouterLink :to="`/edit-employee/${employee.id}`">
-      <div class="flex items-center gap-4 p-6 text-base transition bg-white shadow hover:shadow-md">
+      <div
+        class="flex items-center gap-4 p-6 text-base transition bg-white rounded-lg shadow hover:shadow-md"
+      >
         <div class="p-1 border-4 rounded-full border-sky-500 full">
           <Icon icon="solar:user-bold" class="text-4xl text-sky-500" />
         </div>
