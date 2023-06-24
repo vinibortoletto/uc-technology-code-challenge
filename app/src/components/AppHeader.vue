@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <header class="flex justify-center p-4 mb-6">
+  <header class="flex justify-center p-4 mb-14">
     <RouterLink to="/">
       <img class="w-40" :src="logo" alt="logo da empresa uc technology" />
     </RouterLink>
