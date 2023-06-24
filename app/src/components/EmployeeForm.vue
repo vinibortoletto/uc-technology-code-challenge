@@ -150,7 +150,7 @@ watchEffect(() => {
         v-if="isUpdating"
         @click="$router.push('/')"
         type="button"
-        class="w-full p-2 rounded sm:w-40 bg-slate-300 text-slate-800"
+        class="w-full p-2 font-bold transition rounded sm:w-40 bg-slate-300 text-slate-600 hover:bg-slate-300/80"
       >
         Cancelar
       </button>
@@ -166,7 +166,7 @@ watchEffect(() => {
       <button
         v-else
         type="submit"
-        class="w-full p-2 font-bold rounded sm:w-40 bg-sky-500 text-slate-100"
+        class="w-full p-2 font-bold transition rounded sm:w-40 bg-sky-500 text-slate-100 hover:bg-sky-500/90"
       >
         {{ isUpdating ? 'Salvar' : 'Cadastrar' }}
       </button>
