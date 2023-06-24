@@ -13,6 +13,15 @@ export const getEmployeeList = async () => {
   }
 }
 
+export const getEmployeeById = async (id) => {
+  try {
+    const response = await axios.get(`${API_URL}/${id}`)
+    return response.data
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export const createNewEmployee = async (newEmployee) => {
   try {
     await axios.post(
@@ -36,6 +45,27 @@ export const createNewEmployee = async (newEmployee) => {
 export const deleteEmployee = async (id) => {
   try {
     await axios.delete(`${API_URL}/${id}`)
+  } catch (error) {
+    console.error(error)
+    throw new Error(error)
+  }
+}
+
+export const updateEmployee = async (employeeId, updatedEmployee) => {
+  try {
+    await axios.put(
+      API_URL,
+      {
+        id: employeeId,
+        ...updatedEmployee,
+        criador: { id: CREATOR_ID, nome: CREATOR_NAME }
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
   } catch (error) {
     console.error(error)
     throw new Error(error)
