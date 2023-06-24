@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import EditEmployeeView from '../views/EditEmployeeView.vue'
-import RegisterEmployeeView from '../views/RegisterEmployeeView.vue'
+import { EditEmployeeView, RegisterEmployeeView } from '../views'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

@@ -1,11 +1,11 @@
 <script setup>
 import { Icon } from '@iconify/vue'
-import * as api from '../utils/api.js'
-import DeleteEmployeePopUp from '../components/DeleteEmployeePopUp.vue'
 import { ref } from 'vue'
-import { useEmployee } from '../store'
 import { RouterLink } from 'vue-router'
-import capitalizeText from '../utils/capitalizeText.js'
+import { DeleteEmployeePopUp } from '../components'
+import { useEmployee } from '../store'
+import { capitalizeText } from '../utils'
+import * as api from '../utils/api.js'
 
 const isDeleting = ref(false)
 const { employeeList } = useEmployee()

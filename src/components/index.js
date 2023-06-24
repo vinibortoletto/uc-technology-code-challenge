@@ -1,0 +1,8 @@
+export { default as AppFooter } from './AppFooter.vue'
+export { default as AppHeader } from './AppHeader.vue'
+export { default as DeleteEmployeePopUp } from './DeleteEmployeePopUp.vue'
+export { default as EmployeeCard } from './EmployeeCard.vue'
+export { default as EmployeeForm } from './EmployeeForm.vue'
+export { default as LoadingAnimation } from './LoadingAnimation.vue'
+export { default as PageTitle } from './PageTitle.vue'
+export { default as TextField } from './TextField.vue'

@@ -1,10 +1,8 @@
 <script setup>
 import { onMounted } from 'vue'
-import EmployeeForm from '../components/EmployeeForm.vue'
+import { EmployeeCard, EmployeeForm, PageTitle } from '../components'
 import { useEmployee } from '../store.js'
 import * as api from '../utils/api.js'
-import EmployeeCard from '../components/EmployeeCard.vue'
-import PageTitle from '../components/PageTitle.vue'
 
 const { employeeList } = useEmployee()
 

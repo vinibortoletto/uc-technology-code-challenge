@@ -1,12 +1,10 @@
 <script setup>
-import { useRoute } from 'vue-router'
-import * as api from '../utils/api.js'
-import { watchEffect, ref } from 'vue'
-import EmployeeForm from '../components/EmployeeForm.vue'
-import PageTitle from '../components/PageTitle.vue'
 import { Icon } from '@iconify/vue'
-import capitalizeText from '../utils/capitalizeText'
-import formatDate from '../utils/formatDate'
+import { ref, watchEffect } from 'vue'
+import { useRoute } from 'vue-router'
+import { EmployeeForm, PageTitle } from '../components'
+import { capitalizeText, formatDate } from '../utils'
+import * as api from '../utils/api.js'
 
 const route = useRoute()
 const employee = ref({})
