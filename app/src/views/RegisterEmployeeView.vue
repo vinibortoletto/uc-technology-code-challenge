@@ -4,6 +4,7 @@ import EmployeeForm from '../components/EmployeeForm.vue'
 import { useEmployee } from '../store.js'
 import * as api from '../utils/api.js'
 import EmployeeCard from '../components/EmployeeCard.vue'
+import PageTitle from '../components/PageTitle.vue'
 
 const { employeeList } = useEmployee()
 
@@ -13,7 +14,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <h1 class="mb-4 text-3xl font-bold text-center text-sky-700">Cadastrar funcionário</h1>
+  <PageTitle title="Cadastrar Funcionário" />
 
   <EmployeeForm />
 
