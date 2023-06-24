@@ -7,6 +7,7 @@ import validateForm from '../utils/validateForm.js'
 import LoadingAnimation from './LoadingAnimation.vue'
 import { watchEffect, defineProps } from 'vue'
 import { useRouter } from 'vue-router'
+import capitalizeText from '../utils/capitalizeText.js'
 
 const router = useRouter()
 
@@ -53,7 +54,7 @@ const handleSubmit = async () => {
   const newEmployee = {
     nome: firstName,
     sobrenome: lastName,
-    cargo: role,
+    cargo: role.toUpperCase(),
     dataInicio: new Date(startDate).toISOString()
   }
 
@@ -93,7 +94,7 @@ watchEffect(() => {
     formValues.value = {
       firstName: nome,
       lastName: sobrenome,
-      role: cargo,
+      role: capitalizeText(cargo),
       startDate: new Date(dataInicio).toISOString().split('T')[0]
     }
   }
