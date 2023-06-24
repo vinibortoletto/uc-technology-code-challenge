@@ -5,6 +5,7 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <header class="flex justify-center p-4 mb-14">
+    <!-- Logo -->
     <RouterLink to="/">
       <img class="w-40" :src="logo" alt="logo da empresa uc technology" />
     </RouterLink>

@@ -143,9 +143,11 @@ watchEffect(() => {
       />
     </div>
 
+    <!-- Request Error Message -->
     <p v-if="errorMessage" class="text-sm text-right text-red-800">{{ errorMessage }}</p>
 
     <div class="flex flex-col justify-center gap-2 sm:flex-row">
+      <!-- Cancel Buttons -->
       <button
         v-if="isUpdating"
         @click="$router.push('/')"
@@ -155,6 +157,7 @@ watchEffect(() => {
         Cancelar
       </button>
 
+      <!-- Loading Button -->
       <button
         v-if="isLoading"
         type="submit"
@@ -163,6 +166,7 @@ watchEffect(() => {
         <LoadingAnimation />
       </button>
 
+      <!-- Register/Save Button -->
       <button
         v-else
         type="submit"

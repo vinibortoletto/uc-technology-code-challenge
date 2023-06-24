@@ -37,6 +37,7 @@ const deleteEmployee = async (_, id) => {
 
 <template>
   <div class="relative">
+    <!-- Delete Button -->
     <button
       @click="togglePopUp"
       class="absolute p-1 text-xs text-white bg-red-700 rounded-full right-2 top-2"
@@ -44,14 +45,17 @@ const deleteEmployee = async (_, id) => {
       <Icon icon="ep:close-bold" />
     </button>
 
+    <!-- Card -->
     <RouterLink :to="`/edit-employee/${employee.id}`">
       <div
         class="flex items-center gap-4 p-6 text-base transition bg-white rounded-lg shadow hover:shadow-md"
       >
+        <!-- User Icon -->
         <div class="p-1 border-4 rounded-full border-sky-500 full">
           <Icon icon="solar:user-bold" class="text-4xl text-sky-500" />
         </div>
 
+        <!-- Card Content -->
         <div>
           <p class="text-lg font-bold">{{ employee.nome }} {{ employee.sobrenome }}</p>
           <p>{{ capitalizeText(employee.cargo) }}</p>
@@ -60,6 +64,7 @@ const deleteEmployee = async (_, id) => {
     </RouterLink>
   </div>
 
+  <!-- Hidden Popup -->
   <DeleteEmployeePopUp
     v-if="isDeleting"
     v-on:togglePopUp="togglePopUp"
