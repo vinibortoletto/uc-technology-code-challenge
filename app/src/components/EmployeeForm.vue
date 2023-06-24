@@ -5,6 +5,16 @@ import { useEmployee } from '../store'
 import TextField from './TextField.vue'
 import validateForm from '../utils/validateForm.js'
 import LoadingAnimation from './LoadingAnimation.vue'
+import { watchEffect, defineProps } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const props = defineProps({
+  isUpdating: Boolean,
+  employeeId: String,
+  employee: Object
+})
 
 const defaultFormValues = {
   firstName: '',
@@ -49,7 +59,14 @@ const handleSubmit = async () => {
 
   try {
     isLoading.value = true
-    await api.createNewEmployee(newEmployee)
+
+    if (props.isUpdating) {
+      await api.updateEmployee(props.employeeId, newEmployee)
+      router.push('/')
+    } else {
+      await api.createNewEmployee(newEmployee)
+    }
+
     employeeList.value = await api.getEmployeeList()
     resetForm()
   } catch (error) {
@@ -68,6 +85,19 @@ const handleInputChange = (event) => {
   errorMessages.value[id] = validateForm(value)
   formValues.value[id] = value
 }
+
+watchEffect(() => {
+  if (props.employee && props.employee.nome) {
+    const { nome, sobrenome, cargo, dataInicio } = props.employee
+
+    formValues.value = {
+      firstName: nome,
+      lastName: sobrenome,
+      role: cargo,
+      startDate: new Date(dataInicio).toISOString().split('T')[0]
+    }
+  }
+})
 </script>
 
 <template>
@@ -114,7 +144,16 @@ const handleInputChange = (event) => {
 
     <p v-if="errorMessage" class="text-sm text-right text-red-800">{{ errorMessage }}</p>
 
-    <div class="text-center">
+    <div class="flex flex-col justify-center gap-2 sm:flex-row">
+      <button
+        v-if="isUpdating"
+        @click="$router.push('/')"
+        type="button"
+        class="w-full p-2 rounded sm:w-40 bg-slate-300 text-slate-800"
+      >
+        Cancelar
+      </button>
+
       <button
         v-if="isLoading"
         type="submit"
@@ -128,7 +167,7 @@ const handleInputChange = (event) => {
         type="submit"
         class="w-full p-2 font-bold rounded sm:w-40 bg-sky-500 text-slate-100"
       >
-        Cadastrar
+        {{ isUpdating ? 'Salvar' : 'Cadastrar' }}
       </button>
     </div>
   </form>
