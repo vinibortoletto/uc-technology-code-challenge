@@ -39,27 +39,27 @@ const deleteEmployee = async (_, id) => {
 </script>
 
 <template>
-  <RouterLink :to="`/edit-employee/${employee.id}`">
-    <div
-      class="relative flex items-center gap-4 p-6 text-base transition bg-white shadow hover:shadow-md"
+  <div class="relative">
+    <button
+      @click="togglePopUp"
+      class="absolute p-1 text-xs text-white bg-red-700 rounded-full right-2 top-2"
     >
-      <button
-        @click="togglePopUp"
-        class="absolute p-1 text-xs text-white bg-red-700 rounded-full right-2 top-2"
-      >
-        <Icon icon="ep:close-bold" />
-      </button>
+      <Icon icon="ep:close-bold" />
+    </button>
 
-      <div class="p-1 border-4 rounded-full border-sky-500 full">
-        <Icon icon="solar:user-bold" class="text-4xl text-sky-500" />
-      </div>
+    <RouterLink :to="`/edit-employee/${employee.id}`">
+      <div class="flex items-center gap-4 p-6 text-base transition bg-white shadow hover:shadow-md">
+        <div class="p-1 border-4 rounded-full border-sky-500 full">
+          <Icon icon="solar:user-bold" class="text-4xl text-sky-500" />
+        </div>
 
-      <div>
-        <p class="text-lg font-bold">{{ employee.nome }} {{ employee.sobrenome }}</p>
-        <p>{{ capitalizeText(employee.cargo) }}</p>
+        <div>
+          <p class="text-lg font-bold">{{ employee.nome }} {{ employee.sobrenome }}</p>
+          <p>{{ capitalizeText(employee.cargo) }}</p>
+        </div>
       </div>
-    </div>
-  </RouterLink>
+    </RouterLink>
+  </div>
 
   <DeleteEmployeePopUp
     v-if="isDeleting"
