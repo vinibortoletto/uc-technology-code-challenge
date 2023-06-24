@@ -6,7 +6,7 @@
 <hr />
 
 <p align="center">
-  <img alt="website mockup" src="./app/src/assets/readme/mockup.png" />    
+  <img alt="website mockup" src="./src/assets/readme/mockup.png" />    
 </p>
 
 <p align="center">
@@ -46,21 +46,25 @@ Para testar a aplicação, precisará das seguintes ferramentas:
 <br />
 
 Clone o repositório:
+
 ```bash
 git clone https://github.com/vinibortoletto/uc-technology-code-challenge.git
 ```
 
 Entre no diretório do projeto:
+
 ```bash
 cd uc-technology-code-challenge/app
 ```
 
 Instale as dependências:
+
 ```bash
 npm install
 ```
 
 Inicie a aplicação:
+
 ```bash
 npm run dev
 ```
@@ -71,19 +75,19 @@ npm run dev
 
 ### Cadastrando funcionário:
 
-<img  src='./app/src/assets/readme/creating.gif' alt='' />
+<img  src='./src/assets/readme/creating.gif' alt='' />
 <br/>
 <br/>
 
 ### Deletando funcionário:
 
-<img src='./app/src/assets/readme/deleting.gif' alt='' />
+<img src='./src/assets/readme/deleting.gif' alt='' />
 <br/>
 <br/>
 
 ### Editando funcionário:
 
-<img src='./app/src/assets/readme/editing.gif' alt='' />
+<img src='./src/assets/readme/editing.gif' alt='' />
 <br/>
 <br/>
 
