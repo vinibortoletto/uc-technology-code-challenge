@@ -3,7 +3,7 @@ import { Icon } from '@iconify/vue'
 </script>
 
 <template>
-  <footer class="flex items-center justify-center gap-4 mt-40 mb-4">
+  <footer class="flex items-center justify-center gap-4 mb-4 mt-52">
     <p>Desenvolvido por <span class="font-bold">Vinicius Bortoletto</span></p>
 
     <a href="https://github.com/vinibortoletto" target="_blank">
