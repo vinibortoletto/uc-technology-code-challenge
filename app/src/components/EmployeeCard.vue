@@ -5,6 +5,7 @@ import DeleteEmployeePopUp from '../components/DeleteEmployeePopUp.vue'
 import { ref } from 'vue'
 import { useEmployee } from '../store'
 import { RouterLink } from 'vue-router'
+import capitalizeText from '../utils/capitalizeText.js'
 
 const isDeleting = ref(false)
 const { employeeList } = useEmployee()
@@ -17,10 +18,6 @@ defineProps({
     cargo: String
   }
 })
-
-const capitalizeText = (text) => {
-  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
-}
 
 const togglePopUp = () => {
   isDeleting.value = !isDeleting.value
