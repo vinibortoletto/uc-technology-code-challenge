@@ -21,7 +21,7 @@ onMounted(async () => {
   <section class="max-w-4xl mx-auto">
     <div class="w-full h-1 my-10 bg-slate-300" />
 
-    <div v-if="employeeList.length > 0" class="grid gap-4 sm:grid-cols-2">
+    <div v-if="employeeList.length > 0" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <EmployeeCard v-for="employee in employeeList" :key="employee.id" :employee="employee" />
     </div>
 
