@@ -18,9 +18,9 @@
 
 ## :writing_hand: Sobre
 
-Nesta aplicação, criada como desafio para a empresa UC Technology, o usuário pode cadastrar funcionários, adicionando seu nome completo, cargo e data de contratação. Além disso, também é possível visualizar os funcionários já cadastrados, assim como editá-los ou removê-los, sempre usando um API externa (providênciada pela empresa).
+Nesta aplicação, desenvolvida como um desafio para a empresa UC Technology, os usuários têm a possibilidade de cadastrar funcionários, fornecendo informações como nome completo, cargo e data de contratação. Além disso, a aplicação permite visualizar, editar ou remover os funcionários já cadastrados, utilizando uma API externa fornecida pela empresa.
 
-A aplicação foi desenvolvida de responsiva, podendo ser visualizada por desktop ou aparelhos mobile.
+A aplicação foi cuidadosamente projetada para ser responsiva, adaptando-se tanto a dispositivos desktop quanto a dispositivos móveis, garantindo uma experiência consistente em diferentes plataformas.
 
 ## :rocket: Tecnologias
 
@@ -42,17 +42,26 @@ Para testar a aplicação, precisará das seguintes ferramentas:
 - Git
 - Node.js
 
+<br />
+<br />
+
+Clone o repositório:
 ```bash
-# Clone o repositório:
 git clone https://github.com/vinibortoletto/uc-technology-code-challenge.git
+```
 
-# Entra no diretório do projeto:
+Entre no diretório do projeto:
+```bash
 cd uc-technology-code-challenge/app
+```
 
-# Instale as dependências:
+Instale as dependências:
+```bash
 npm install
+```
 
-# Inicie a aplicação:
+Inicie a aplicação:
+```bash
 npm run dev
 ```
 
@@ -79,20 +88,3 @@ npm run dev
 <br/>
 
 </div>
-
-<br/><br/>
-
-<br/><br/>
-
-<p align="center">
-  Criado e desenvolvido por <b>Vinicius Bortoletto</b>
-  <br/><br/>
-  
-  <a href="https://vinibortoletto.vercel.app/">
-    <img alt="portfolio" height="30px" src="https://i.imgur.com/7lbNPnj.png" />
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://www.linkedin.com/in/vinicius-bortoletto/">
-    <img alt="linkedIn" height="30px" src="https://i.imgur.com/TQRXxhT.png" />
-  </a>
-</p>
