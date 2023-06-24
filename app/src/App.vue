@@ -5,11 +5,13 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <AppHeader />
+  <div class="flex flex-col min-h-screen">
+    <AppHeader />
 
-  <main class="px-4 mx-auto">
-    <RouterView />
-  </main>
+    <main class="flex-grow w-full px-4 mx-auto">
+      <RouterView />
+    </main>
 
-  <AppFooter />
+    <AppFooter class="flex-shrink-0" />
+  </div>
 </template>
