@@ -148,7 +148,7 @@ watchEffect(() => {
       <!-- Cancel Buttons -->
       <button
         v-if="isUpdating"
-        @click="$router.push('/')"
+        @click="router.push('/')"
         type="button"
         class="w-full p-2 font-bold transition rounded sm:w-40 bg-slate-300 text-slate-600 hover:bg-slate-300/80"
       >

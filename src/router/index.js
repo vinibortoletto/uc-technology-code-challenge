@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { EditEmployeeView, RegisterEmployeeView } from '../views'
+import { EditEmployeeView, NotFoundView, RegisterEmployeeView } from '../views'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +13,11 @@ const router = createRouter({
       path: '/edit-employee/:id',
       name: 'Edit Employee',
       component: EditEmployeeView
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'Not Found',
+      component: NotFoundView
     }
   ]
 })
