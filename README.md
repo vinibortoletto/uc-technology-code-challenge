@@ -68,6 +68,12 @@ Inicie a aplicação:
 npm run dev
 ```
 
+Em um navegador, acesse o endereço:
+
+```bash
+http://127.0.0.1:5173/
+```
+
 ## :video_camera: Demo
 
 <div>
