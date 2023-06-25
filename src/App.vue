@@ -5,12 +5,42 @@ import { RouterView } from 'vue-router'
 
 <template>
   <div class="flex flex-col min-h-screen">
-    <AppHeader />
+    <Transition name="initial" appear>
+      <AppHeader />
+    </Transition>
 
-    <main class="flex-grow w-full px-4 mx-auto">
+    <Transition name="route">
       <RouterView />
-    </main>
+    </Transition>
 
-    <AppFooter class="flex-shrink-0" />
+    <Transition name="initial" appear>
+      <AppFooter class="flex-shrink-0" />
+    </Transition>
   </div>
 </template>
+
+<style scoped>
+.route-enter-from {
+  opacity: 0;
+}
+
+.route-enter-to {
+  opacity: 1;
+}
+
+.route-enter-active {
+  transition: all 0.5s ease;
+}
+
+.initial-enter-from {
+  opacity: 0;
+}
+
+.initial-enter-to {
+  opacity: 1;
+}
+
+.initial-enter-active {
+  transition: all 0.5s ease;
+}
+</style>

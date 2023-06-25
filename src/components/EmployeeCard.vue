@@ -65,10 +65,29 @@ const deleteEmployee = async (_, id) => {
   </div>
 
   <!-- Hidden Popup -->
-  <DeleteEmployeePopUp
-    v-if="isDeleting"
-    v-on:togglePopUp="togglePopUp"
-    v-on:deleteEmployee="deleteEmployee"
-    :employee="employee"
-  />
+  <Transition name="popup">
+    <DeleteEmployeePopUp
+      v-if="isDeleting"
+      v-on:togglePopUp="togglePopUp"
+      v-on:deleteEmployee="deleteEmployee"
+      :employee="employee"
+    />
+  </Transition>
 </template>
+
+<style scoped>
+.popup-enter-from,
+.popup-leave-to {
+  opacity: 0;
+}
+
+.popup-enter-to,
+.popup-leave-from {
+  opacity: 1;
+}
+
+.popup-enter-active,
+.popup-leave-active {
+  transition: all 0.2s ease;
+}
+</style>
