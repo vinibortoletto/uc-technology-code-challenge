@@ -1,6 +1,6 @@
 <div align="center">
   <h1>UC Technology Code Challenge</h1>
-  Uma aplicação front-end onde você pode cadastar, visualizar funcionários, editar e remove funcionários. 
+  Uma aplicação front-end onde você pode cadastar, visualizar, editar e remover funcionários. 
 </div>
 
 <hr />
@@ -42,8 +42,7 @@ Para testar a aplicação, precisará das seguintes ferramentas:
 - Git
 - Node.js
 
-<br />
-<br />
+
 
 Clone o repositório:
 
