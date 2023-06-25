@@ -79,18 +79,22 @@ http://127.0.0.1:5173/
 <div>
 
 ### Cadastrando funcionário:
+Durante o processo de cadastro, o usuário tem a opção de preencher os campos de nome, sobrenome, cargo e data. Esses campos passam por uma validação em tempo real enquanto você digita. 
+Após preencher todos os campos, os dados são enviados e, se forem considerados válidos, o novo funcionário é adicionado ao banco de dados e exibido abaixo do formulário, na lista de funcionários.
 
 <img  src='./src/assets/readme/creating.gif' alt='' />
 <br/>
 <br/>
 
 ### Deletando funcionário:
+Na seção de cards que lista os funcionários, existe a opção de excluir um funcionário. Ao clicar nessa opção, um modal é exibido ao usuário, solicitando uma confirmação para remover o funcionário selecionado. Se o usuário confirmar, o funcionário é removido do banco de dados e essa ação é refletida imediatamente na lista de funcionários.
 
 <img src='./src/assets/readme/deleting.gif' alt='' />
 <br/>
 <br/>
 
 ### Editando funcionário:
+Ao clicar no card de um funcionário, o usuário é direcionado para a página de edição de funcionários, onde é possível realizar modificações em todas as informações do funcionário, incluindo nome, sobrenome, cargo e data. Além disso, é possível visualizar as informações atualizadas do funcionário em um card específico. Após salvar as alterações, o usuário é redirecionado de volta para a página principal da aplicação, onde as edições são refletidas imediatamente na lista de funcionários.
 
 <img src='./src/assets/readme/editing.gif' alt='' />
 <br/>
