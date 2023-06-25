@@ -40,7 +40,7 @@ const deleteEmployee = async (_, id) => {
     <!-- Delete Button -->
     <button
       @click="togglePopUp"
-      class="absolute p-1 text-xs text-white bg-red-700 rounded-full right-2 top-2"
+      class="absolute p-1 text-xs text-white transition bg-red-700 rounded-full right-2 top-2 hover:bg-red-700/80"
     >
       <Icon icon="ep:close-bold" />
     </button>
