@@ -5,42 +5,28 @@ import { RouterView } from 'vue-router'
 
 <template>
   <div class="flex flex-col min-h-screen">
-    <Transition name="initial" appear>
+    <Transition name="fade" appear>
       <AppHeader />
     </Transition>
 
-    <Transition name="route">
-      <RouterView />
-    </Transition>
+    <RouterView v-slot="{ Component }">
+      <Transition name="fade">
+        <Component :is="Component" />
+      </Transition>
+    </RouterView>
 
-    <Transition name="initial" appear>
+    <Transition name="fade" appear>
       <AppFooter class="flex-shrink-0" />
     </Transition>
   </div>
 </template>
 
 <style scoped>
-.route-enter-from {
+.fade-enter-from {
   opacity: 0;
 }
 
-.route-enter-to {
-  opacity: 1;
-}
-
-.route-enter-active {
-  transition: all 0.5s ease;
-}
-
-.initial-enter-from {
-  opacity: 0;
-}
-
-.initial-enter-to {
-  opacity: 1;
-}
-
-.initial-enter-active {
+.fade-enter-active {
   transition: all 0.5s ease;
 }
 </style>
